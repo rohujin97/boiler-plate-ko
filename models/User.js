@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
-const UserSchema = mangoose.Schema({
+const UserSchema = mongoose.Schema({
     name: {
         type: String,
         maxlength: 50
     },
     email: {
         type: String,
-        trim: ture,//space를 없애주는 역할
+        trim: true,//space를 없애주는 역할
     },
     password: {
         type: String,
-        minlength: 50
+        minlength: 4
     },
     role: {
         type: Number,//1이면 관리자 0이면 유저
@@ -26,6 +26,6 @@ const UserSchema = mangoose.Schema({
     }
 })
 
-const User = mongoose.model('User', userSchema)//schema를 model로 감싸주기
+const User = mongoose.model('User', UserSchema)//schema를 model로 감싸주기
 
 module.exports = { User }
